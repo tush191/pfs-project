@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* ✅ Unified Input Styling */
+.input {
+  @apply bg-slate-800 text-white rounded-lg px-4 py-2 border border-slate-700 
+  w-full focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300;
+}
+
+/* ✅ Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* ✅ Image Hover Zoom */
+.image-hover {
+  transition: transform 0.4s ease;
+}
+.image-hover:hover {
+  transform: scale(1.03);
+}
+
+/* ✅ Glow Pulse Effect */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0px cyan; }
+  50% { box-shadow: 0 0 15px cyan; }
+  100% { box-shadow: 0 0 0px cyan; }
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 1.2s infinite;
+}
+
+/* ✅ Skeleton Loader Effect */
+.skeleton {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 37%, #1e293b 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 8px;
+  height: 18px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}

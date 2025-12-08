@@ -1,0 +1,11 @@
+flask
+flask_sqlalchemy
+flask_cors
+pillow
+tensorflow>=2.11
+numpy
+opencv-python
+scikit-learn
+requests
+python-dotenv
+gunicorn
