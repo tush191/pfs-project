@@ -12,7 +12,6 @@ data/
 outputs/
 *.pt
 *.onnx
-*.h5
 
 # System files
 .DS_Store
