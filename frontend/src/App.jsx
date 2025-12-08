@@ -21,37 +21,40 @@ export default function App() {
   };
 
   const handleSubmit = async () => {
-    if (!image) return alert("Upload image!");
+  if (!image) return alert("Upload image!");
 
-    setLoading(true);
-    setResult(null);
+  setLoading(true);
+  setResult(null);
 
-    const formData = new FormData();
-    formData.append("image", image);
-    formData.append("age", age);
-    formData.append("gender", gender);
-    formData.append("height_cm", height);
-    formData.append("weight_kg", weight);
-    formData.append("activity", activity);
-    formData.append("goal", goal);
+  const formData = new FormData();
+  formData.append("image", image);
+  formData.append("age", age);
+  formData.append("gender", gender);
+  formData.append("height_cm", height);
+  formData.append("weight_kg", weight);
+  formData.append("activity", activity);
+  formData.append("goal", goal);
 
-   try {
-      // ✅ FIXED: USE RAILWAY BACKEND URL
-      const res = await fetch(
-        "https://pfs-project-production.up.railway.app/upload-image",
-        {
-          method: "POST",
-          body: data,
-        }
-      );
-      const data = await res.json();
-      setResult(data);
-    } catch {
-      alert("Backend Error!");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const res = await fetch(
+      "https://pfs-project-production.up.railway.app/upload-image",
+      {
+        method: "POST",
+        body: formData,   // ✅ FIXED
+      }
+    );
+
+    const data = await res.json();
+    setResult(data);
+
+  } catch (err) {
+    console.error(err);
+    alert("Backend Error!");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#020617] via-[#020617] to-[#020617] px-4 py-6 flex justify-center">
