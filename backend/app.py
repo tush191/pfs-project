@@ -14,7 +14,10 @@ app = Flask(__name__)
 CORS(app)
 
 # ✅ ✅ CORRECT MODEL PATH (FIXED)
-MODEL_PATH = "models/bodytype_best.h5"
+import os
+
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "bodytype_best.h5")
+
 
 
 # ✅ 3 CLASS NAMES (FINAL)
